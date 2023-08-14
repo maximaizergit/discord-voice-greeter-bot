@@ -42,34 +42,29 @@ client.on("ready", () => {
 client.on("interactionCreate", async (interaction) => {
   if (!interaction.isChatInputCommand()) return;
   const { commandName, options } = interaction;
-  try {
-    if (interaction.commandName === "hui") {
-      await interaction.reply("соси");
-    } else if (interaction.commandName === "addtowl") {
-      const userOption = options.getUser("user"); // Get the selected user
-      if (userOption) {
-        const userId = userOption.id; // Extract user's ID
-        addUserToWhitelist(userId);
-        await interaction.reply(
-          `Added user with ID ${userId} to the whitelist.`
-        );
-      } else {
-        await interaction.reply("User not found.");
-      }
-    } else if (interaction.commandName === "removefromwl") {
-      const userOption = options.getUser("user"); // Get the selected user
-      if (userOption) {
-        const userId = userOption.id; // Extract user's ID
-        removeUserFromWhitelist(userId);
-        await interaction.reply(
-          `Removed user with ID ${userId} from the whitelist.`
-        );
-      } else {
-        await interaction.reply("User not found.");
-      }
+
+  if (interaction.commandName === "hui") {
+    await interaction.reply("соси");
+  } else if (interaction.commandName === "addtowl") {
+    const userOption = options.getUser("user"); // Get the selected user
+    if (userOption) {
+      const userId = userOption.id; // Extract user's ID
+      addUserToWhitelist(userId);
+      await interaction.reply(`Added user with ID ${userId} to the whitelist.`);
+    } else {
+      await interaction.reply("User not found.");
     }
-  } catch (err) {
-    await interaction.reply(err);
+  } else if (interaction.commandName === "removefromwl") {
+    const userOption = options.getUser("user"); // Get the selected user
+    if (userOption) {
+      const userId = userOption.id; // Extract user's ID
+      removeUserFromWhitelist(userId);
+      await interaction.reply(
+        `Removed user with ID ${userId} from the whitelist.`
+      );
+    } else {
+      await interaction.reply("User not found.");
+    }
   }
 });
 
