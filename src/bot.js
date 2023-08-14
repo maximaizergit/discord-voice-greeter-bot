@@ -22,13 +22,12 @@ import fetch from "node-fetch";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import googleTTS from "google-tts-api";
-import tts from "discord-tts";
-
+import dotenv from "dotenv";
+dotenv.config();
 const client = new Client({
   intents: ["Guilds", "GuildMessages", "GuildVoiceStates"],
 });
-const TOKEN =
-  "MTE0MDM2MTI3NjEyMDM4MzU2OA.GAKa_V.ds0edaYpbmYmkI8o4Pql4jFoqSg9qi-z0Rz_aI";
+const TOKEN = process.env.TOKEN;
 const CLIENT_ID = "1140361276120383568";
 const GUILD_ID = "598932217246384129";
 client.login(TOKEN);
