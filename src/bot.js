@@ -18,7 +18,8 @@ import fs from "fs";
 import path from "path";
 import url from "url";
 import fetch from "node-fetch";
-
+import express from "express";
+import ping from "node-ping";
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import googleTTS from "google-tts-api";
@@ -226,3 +227,28 @@ async function sendPingToBot() {
 
 // Отправляем пинг каждые 5 минут (300000 миллисекунд)
 setInterval(sendPingToBot, 300000);
+const PORT = 3000;
+// Ваш код для создания сервера Express
+const app = express();
+
+// Этот маршрут будет возвращать "success" в случае успешного запуска
+app.get("/status", (req, res) => {
+  res.send("success");
+});
+
+// Пинговать указанный хост каждые 5 минут
+async function pingBot() {
+  try {
+    const response = await fetch("https://greeterbot.onrender.com"); // Замените на актуальный URL вашего бота
+    if (response.ok) {
+      console.log("Bot pinged successfully");
+    } else {
+      console.error(`Failed to ping bot. Response status: ${response.status}`);
+    }
+  } catch (error) {
+    console.error("Error while pinging bot:", error.message);
+  }
+}
+
+// Пинговать бота каждые 5 минут
+setInterval(pingBot, 10000); // 5 минут

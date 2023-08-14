@@ -7,11 +7,16 @@
     "discord-tts": "^1.2.2",
     "discord.js": "^14.12.1",
     "dotenv": "^16.3.1",
+    "eventproxy": "^1.0.0",
+    "express": "^4.18.2",
+    "footprint": "^2.0.0",
     "google-tts-api": "^2.0.2",
+    "heroku-keepalive": "^1.0.0",
     "libsodium-wrappers": "^0.7.11",
     "mongodb": "^5.7.0",
     "node-fetch": "^3.3.2",
-    "node-gtts": "^2.0.2"
+    "node-gtts": "^2.0.2",
+    "node-ping": "^0.1.0"
   },
   "scripts": {
     "start": "node src/bot.js"
