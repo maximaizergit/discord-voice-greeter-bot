@@ -66,6 +66,7 @@ client.on("interactionCreate", async (interaction) => {
       await interaction.reply("User not found.");
     }
   }
+  console.log("err check");
 });
 
 async function main() {
