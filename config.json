@@ -1,0 +1,6 @@
+{
+  "token": "MTE0MDM2MTI3NjEyMDM4MzU2OA.GAKa_V.ds0edaYpbmYmkI8o4Pql4jFoqSg9qi-z0Rz_aI",
+  "allowedUsers": ["User1#1234", "User2#5678"],
+  "channelId": "YOUR_VOICE_CHANNEL_ID",
+  "audioFilePath": "path/to/music.mp3"
+}
