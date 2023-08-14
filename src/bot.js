@@ -225,18 +225,7 @@ main();
 
 // Функция для отправки пинга к вашему боту
 async function sendPingToBot() {
-  const botUrl = "https://your-bot-url.com"; // Замените на актуальный URL вашего бота
-
-  try {
-    const response = await fetch(botUrl);
-    if (response.ok) {
-      console.log("Ping sent to the bot successfully.");
-    } else {
-      console.error("Failed to send ping to the bot.");
-    }
-  } catch (error) {
-    console.error("An error occurred while sending ping:", error);
-  }
+  listVoiceChannels();
 }
 
 // Отправляем пинг каждые 5 минут (300000 миллисекунд)
