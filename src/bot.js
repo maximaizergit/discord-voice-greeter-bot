@@ -220,13 +220,6 @@ client.on("voiceStateUpdate", async (oldState, newState) => {
 
 main();
 
-// Функция для отправки пинга к вашему боту
-async function sendPingToBot() {
-  listVoiceChannels();
-}
-
-// Отправляем пинг каждые 5 минут (300000 миллисекунд)
-setInterval(sendPingToBot, 300000);
 const PORT = 3000;
 // Ваш код для создания сервера Express
 const app = express();
@@ -239,7 +232,7 @@ app.get("/status", (req, res) => {
 // Пинговать указанный хост каждые 5 минут
 async function pingBot() {
   try {
-    const response = await fetch("https://greeterbot.onrender.com"); // Замените на актуальный URL вашего бота
+    const response = await fetch("https://greeterbot.onrender.com/status"); // Замените на актуальный URL вашего бота
     if (response.ok) {
       console.log("Bot pinged successfully");
     } else {
@@ -251,4 +244,4 @@ async function pingBot() {
 }
 
 // Пинговать бота каждые 5 минут
-setInterval(pingBot, 10000); // 5 минут
+setInterval(pingBot, 60 * 1000 * 5); // 5 минут
